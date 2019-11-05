@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "reading-list": "./index.js"
+    "gb-reading-list": "./index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chalk": "^2.4.2",
+    "cli-table3": "^0.5.1",
     "esm": "^3.2.25",
+    "google-books-search": "^0.3.1",
     "minimist": "^1.2.0"
   }
 }
