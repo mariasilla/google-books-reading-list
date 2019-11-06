@@ -12,7 +12,7 @@ export async function queryGoogleBooksAPI(userQuery) {
   books.search(userQuery, options, function(error, results) {
     if (!error) {
       const table = new Table({
-        head: ["Number", "Author", "Title", "Publisher"],
+        head: ["Index", "Author", "Title", "Publisher"],
         colWidths: [10, 23, 20, 18],
         wordWrap: true
       });

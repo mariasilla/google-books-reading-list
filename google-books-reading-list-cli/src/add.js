@@ -34,19 +34,24 @@ export async function addBookToReadingList(results) {
         hint: "- Space to select. Return to submit"
       }
     ]);
-
     if (response.value.length !== 0) {
-      console.warn(
+      console.log(
         chalk.blueBright(
           `Book with title '${
             response.value[0][2]
-          }' has been added to your reading list`
+          }' has been added to your Reading List.`
+        ),
+        chalk.greenBright(
+          `Run 'gb-reading-list view' to view your Reading List.`
         )
       );
 
       createReadingList(response);
     } else {
-      console.error(chalk.redBright("Please make a selection"));
+      console.error(
+        chalk.redBright("Please make a selection"),
+        chalk.greenBright(`Run 'gb-reading-list search' to find new books.`)
+      );
     }
   })();
 }
