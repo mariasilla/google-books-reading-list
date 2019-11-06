@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import { createReadingList } from "./reading-list";
 
 export async function addBookToReadingList(results) {
   let prompts = require("prompts");
@@ -33,6 +34,7 @@ export async function addBookToReadingList(results) {
         hint: "- Space to select. Return to submit"
       }
     ]);
+
     if (response.value.length !== 0) {
       console.warn(
         chalk.blueBright(
@@ -41,6 +43,8 @@ export async function addBookToReadingList(results) {
           }' has been added to your reading list`
         )
       );
+
+      createReadingList(response);
     } else {
       console.error(chalk.redBright("Please make a selection"));
     }
