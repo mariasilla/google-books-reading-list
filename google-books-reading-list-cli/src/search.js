@@ -1,21 +1,18 @@
-import { queryGoogleBooksAPI } from "./utils";
+import { queryGoogleBooksAPI } from "./google-books-query"
 import chalk from "chalk";
 
 export async function search() {
-  let standard_input = process.stdin;
+  let prompts = require("prompts");
 
-  standard_input.setEncoding("utf-8");
-
-  console.warn(
-    chalk.blueBright(`Please type query in command line to search for books:`)
-  );
-
-  standard_input.on("data", function(userQuery) {
-    if (userQuery === "exit\n") {
-      console.error(chalk.redBright(`User input incomplete, program exit.`));
-      process.exit();
-    } else {
-      queryGoogleBooksAPI(userQuery);
-    }
-  });
+  (async () => {
+    const userQuery = await prompts({
+      type: "text",
+      name: "value",
+      message: chalk.green(
+        `Please type query in command line to search for books:`
+      ),
+      validate: value => (value < 1 ? `Please enter at least one symbol` : true)
+    });
+    queryGoogleBooksAPI(userQuery.value);
+  })();
 }
