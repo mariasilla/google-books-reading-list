@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { createReadingList } from "./reading-list";
 
-export async function addBookToReadingList(results) {
+export function addBookToReadingList(results) {
   let prompts = require("prompts");
   let booksArray = [];
 
@@ -36,7 +36,7 @@ export async function addBookToReadingList(results) {
     ]);
     if (response.value.length !== 0) {
       console.log(
-        chalk.blueBright(
+        chalk.magentaBright(
           `Book with title '${
             response.value[0][2]
           }' has been added to your Reading List.`
@@ -49,8 +49,8 @@ export async function addBookToReadingList(results) {
       createReadingList(response);
     } else {
       console.error(
-        chalk.redBright("Please make a selection"),
-        chalk.greenBright(`Run 'gb-reading-list search' to find new books.`)
+        chalk.redBright("Please make a selection."),
+        chalk.magentaBright(`Run 'gb-reading-list search' to find new books.`)
       );
     }
   })();

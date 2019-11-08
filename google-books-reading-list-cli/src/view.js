@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import Table from "cli-table3";
 
-export async function view() {
+export function view() {
   const low = require("lowdb");
   const FileSync = require("lowdb/adapters/FileSync");
   const adapter = new FileSync("reading-list.json");

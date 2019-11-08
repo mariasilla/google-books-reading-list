@@ -1,10 +1,18 @@
 import minimist from "minimist";
+import chalk from "chalk";
 import { search } from "./search";
 import { help } from "./help";
 import { version } from "./version";
 import { view } from "./view";
 
-export async function cli(argsArray) {
+export function cli(argsArray) {
+  let figlet = require("figlet");
+  console.log(
+    chalk.magentaBright(
+      figlet.textSync("GB Reading List", { horizontalLayout: "full" })
+    )
+  );
+
   const args = minimist(argsArray.slice(2));
   let cmd = args._[0] || "help";
 

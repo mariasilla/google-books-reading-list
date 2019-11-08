@@ -2,10 +2,9 @@ import chalk from "chalk";
 import Table from "cli-table3";
 import { addBookToReadingList } from "./add";
 
-export async function queryGoogleBooksAPI(userQuery) {
+export function queryGoogleBooksAPI(userQuery) {
   let books = require("google-books-search");
   let options = {
-    field: "title",
     limit: 5
   };
 
@@ -18,6 +17,15 @@ export async function queryGoogleBooksAPI(userQuery) {
       });
 
       results.forEach((book, i) => {
+        if (book.authors === undefined) {
+          book.authors = "Not available";
+        }
+        if (book.title === undefined) {
+          book.title = "Not available";
+        }
+        if (book.publisher === undefined) {
+          book.publisher = "Not available";
+        }
         table.push([
           i + 1,
           String(book.authors),

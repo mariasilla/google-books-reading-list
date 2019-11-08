@@ -1,26 +1,33 @@
 {
   "name": "google-books-reading-list-cli",
   "version": "1.4.0",
-  "description": "",
+  "description": "A reading list CLI app in Node.js that allows you to use the Google Books API to search for books and construct a reading list.",
   "main": "index.js",
   "bin": {
     "gb-reading-list": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles"
   },
   "keywords": [],
-  "author": "",
+  "author": "Maria Sylla",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
+    "babel-polyfill": "^6.26.0",
     "chalk": "^2.4.2",
     "cli-table3": "^0.5.1",
+    "del": "^5.1.0",
     "esm": "^3.2.25",
+    "figlet": "^1.2.4",
     "google-books-search": "^0.3.1",
+    "jest": "^24.9.0",
+    "lowdb": "^1.0.0",
     "minimist": "^1.2.0",
     "prompts": "^2.2.1"
   },
-  "dependencies": {
-    "lowdb": "^1.0.0"
+  "devDependencies": {
+    "@babel/core": "^7.7.2"
   }
 }

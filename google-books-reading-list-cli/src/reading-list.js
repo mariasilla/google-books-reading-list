@@ -1,4 +1,4 @@
-export async function createReadingList(response) {
+export function createReadingList(response) {
   const low = require("lowdb");
   const FileSync = require("lowdb/adapters/FileSync");
 

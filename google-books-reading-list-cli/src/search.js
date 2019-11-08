@@ -1,7 +1,7 @@
-import { queryGoogleBooksAPI } from "./google-books-query"
+import { queryGoogleBooksAPI } from "./google-books-query";
 import chalk from "chalk";
 
-export async function search() {
+export function search() {
   let prompts = require("prompts");
 
   (async () => {
