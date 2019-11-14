@@ -13,3 +13,4 @@
 # misc
 .env
 reading-list.json
+.DS_Store

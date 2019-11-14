@@ -1,6 +1,9 @@
 import minimist from "minimist";
 import chalk from "chalk";
-import { search } from "./search";
+
+import { generalSearch } from "./commands/general-search";
+import { titleSearch } from "./commands/title-search";
+import {authorSearch} from "./commands/author-search"
 import { help } from "./help";
 import { version } from "./version";
 import { view } from "./view";
@@ -33,9 +36,17 @@ export function cli(argsArray) {
       help(args);
       break;
 
-    case "search":
-      search(args);
+    case "general-search":
+      generalSearch(args);
       break;
+
+    case "title-search":
+      titleSearch(args);
+      break;
+
+      case "author-search":
+        authorSearch(args);
+        break;
 
     case "view":
       view(args);

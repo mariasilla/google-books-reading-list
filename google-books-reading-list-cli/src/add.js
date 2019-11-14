@@ -1,22 +1,12 @@
 import chalk from "chalk";
-import { createReadingList } from "./reading-list";
+import { createReadingList } from "./utils/reading-list-utils";
 
-export function addBookToReadingList(results) {
+export function addBookToReadingList(books) {
   let prompts = require("prompts");
-  let booksArray = [];
 
-  results.forEach((book, i) => {
-    booksArray.push([
-      i + 1,
-      String(book.authors),
-      book.title,
-      String(book.publisher)
-    ]);
-  });
-
-  let userOptions = booksArray.map(book => {
+  let userOptions = books.map(book => {
     return {
-      title: book[2],
+      title: `${book.title} by ${book.authors}`,
       value: book
     };
   });
@@ -34,19 +24,18 @@ export function addBookToReadingList(results) {
         hint: "- Space to select. Return to submit"
       }
     ]);
+
+    const book = response.value[0];
     if (response.value.length !== 0) {
       console.log(
         chalk.magentaBright(
-          `Book with title '${
-            response.value[0][2]
-          }' has been added to your Reading List.`
+          `Book with title '${book.title}' by ${book.authors} has been added to your Reading List.`
         ),
         chalk.greenBright(
           `Run 'gb-reading-list view' to view your Reading List.`
         )
       );
-
-      createReadingList(response);
+      createReadingList(book);
     } else {
       console.error(
         chalk.redBright("Please make a selection."),
