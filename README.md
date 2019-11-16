@@ -15,7 +15,9 @@ npm link OR sudo npm link
 gb-reading-list
 gb-reading-list help
 gb-reading-list version
-gb-reading-list search
+gb-reading-list general-search
+gb-reading-list title-search
+gb-reading-list author-search
 gb-reading-list view
 ```
 
@@ -30,9 +32,9 @@ gb-reading-list help
 ```
 See menu with all available commands and their descriptions.
 
-<img src="./google-books-reading-list-cli/assets/main-menu.png" width="550">
+<img src="./google-books-reading-list-cli/assets/help.png" width="550">
 
-### `version`
+### `version` 
 ```sh
 gb-reading-list version
 ```
@@ -42,11 +44,28 @@ See current version
 
 ### `search`
 ```sh
-gb-reading-list search
+gb-reading-list general-search
 ```
-Search for new books and add a book to your reading list
+Search for books that contain your text query
 
-<img src="./google-books-reading-list-cli/assets/search.png" width="550">
+<img src="./google-books-reading-list-cli/assets/general-search.png" width="550">
+
+```sh
+gb-reading-list title-search
+```
+Return books with specific title
+
+<img src="./google-books-reading-list-cli/assets/title-search.png" width="550">
+
+```sh
+gb-reading-list author-search
+```
+Return books written by specific author
+
+<img src="./google-books-reading-list-cli/assets/author-search.png" width="550">
+
+Then add a book to your reading list
+
 
 ### `view`
 ```sh

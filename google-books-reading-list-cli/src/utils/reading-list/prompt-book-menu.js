@@ -1,9 +1,9 @@
 import chalk from "chalk";
-import { createReadingList } from "./utils/reading-list-utils";
+import prompts from "prompts";
 
-export function addBookToReadingList(books) {
-  let prompts = require("prompts");
+import { addBookToJson } from "./add-book-json";
 
+export function promptBookMenuOptions(books) {
   let userOptions = books.map(book => {
     return {
       title: `${book.title} by ${book.authors}`,
@@ -35,11 +35,13 @@ export function addBookToReadingList(books) {
           `Run 'gb-reading-list view' to view your Reading List.`
         )
       );
-      createReadingList(book);
+      addBookToJson(book);
     } else {
       console.error(
         chalk.redBright("Please make a selection."),
-        chalk.magentaBright(`Run 'gb-reading-list search' to find new books.`)
+        chalk.magentaBright(
+          `Run 'gb-reading-list help' to view possible commands.`
+        )
       );
     }
   })();

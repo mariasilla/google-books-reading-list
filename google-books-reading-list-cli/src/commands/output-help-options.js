@@ -8,10 +8,10 @@ ${chalk.greenBright("gb-reading-list [command] <options>")}
   )} ................ search for books that contain your text query
   ${chalk.blueBright(
     "title-search"
-  )} ................ search for books where your text query is found in the title field
+  )} ................ return books with specific title
   ${chalk.blueBright(
     "author-search"
-  )} ................ search for books where your text query is found in the author field
+  )} ................ return books written by specific author
   ${chalk.blueBright("view")} ................ view your current Reading List
   ${chalk.blueBright("version")} ............ show package version
   ${chalk.blueBright("help")} ............... show help menu for a command
@@ -26,7 +26,7 @@ ${chalk.greenBright("gb-reading-list [command] <options>")}
         `
 };
 
-export function help(args) {
+export function outputHelpOptions(args) {
   const subCmd = args._[0] === "help" ? args._[1] : args._[0];
   console.log(menuOptions[subCmd] || menuOptions.main);
 }

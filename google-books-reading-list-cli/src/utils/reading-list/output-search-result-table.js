@@ -1,24 +1,6 @@
 import Table from "cli-table3";
 
-export function createReadingList(book) {
-  const low = require("lowdb");
-  const FileSync = require("lowdb/adapters/FileSync");
-
-  const adapter = new FileSync("reading-list.json");
-  const db = low(adapter);
-
-  db.defaults({ books: [] }).write();
-
-  db.get("books")
-    .push({
-      title: book.title,
-      author: String(book.authors),
-      publisher: String(book.publisher)
-    })
-    .write();
-}
-
-export function createSearchResultTable(books) {
+export function outputSearchResultTable(books) {
   const table = new Table({
     head: ["Index", "Author", "Title", "Publisher"],
     colWidths: [10, 23, 20, 18],
