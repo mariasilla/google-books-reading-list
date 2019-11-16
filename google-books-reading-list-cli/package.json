@@ -1,6 +1,6 @@
 {
   "name": "google-books-reading-list-cli",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "A reading list CLI app in Node.js that allows you to use the Google Books API to search for books and construct a reading list.",
   "main": "index.js",
   "bin": {
