@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import prompts from "prompts";
 
-import { performApiSearch, parseBookData } from "../utils/api/api-utils";
+import { getBookData, parseBookData } from "../utils/api/api-utils";
 import { outputSearchResultTable } from "../utils/reading-list/output-search-result-table";
 import { promptBookMenuOptions } from "../utils/reading-list/prompt-book-menu";
 import { API } from "../utils/api/api-config";
@@ -25,17 +25,17 @@ export async function promptUserQuery(args) {
     });
 
     if (cmd === "general-search") {
-      ({ data, status, statusText } = await performApiSearch(
+      ({ data, status, statusText } = await getBookData(
         API.BASE_URI,
         userQuery.value
       ));
     } else if (cmd === "title-search") {
-      ({ data, status, statusText } = await performApiSearch(
+      ({ data, status, statusText } = await getBookData(
         API.BASE_URI_TITLE,
         userQuery.value
       ));
     } else if (cmd === "author-search") {
-      ({ data, status, statusText } = await performApiSearch(
+      ({ data, status, statusText } = await getBookData(
         API.BASE_URI_AUTHOR,
         userQuery.value
       ));
