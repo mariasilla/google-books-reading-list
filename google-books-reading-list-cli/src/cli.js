@@ -27,7 +27,7 @@ export function cli(argsArray) {
 
   switch (cmd) {
     case "version":
-      outputVersion(args);
+      outputVersion();
       break;
 
     case "help":
@@ -47,7 +47,7 @@ export function cli(argsArray) {
       break;
 
     case "view":
-      outputReadingList(args);
+      outputReadingList();
       break;
 
     default:

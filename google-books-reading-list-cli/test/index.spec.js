@@ -30,7 +30,7 @@ describe("Cli module should be loaded", () => {
 
     expect(spyLogError).toBeCalledTimes(1);
     expect(spyLogError).toHaveBeenCalledWith(
-      "\"run commands\" is not a valid command!"
+      '"run commands" is not a valid command!'
     );
   });
 });
@@ -80,6 +80,13 @@ describe("Function getBookData() should handle API get request correctly", () =>
       ({ data } = await getBookData(baseUri, userInput));
       const books = parseBookData(data);
       expect(books[0].authors).toEqual(["T. B. Flannagan"]);
+    });
+
+    test("if no books were found matching user query, parseBookData() should return false", async () => {
+      userInput = "asadjsdsahdasjhdsajkdhs";
+      ({ data } = await getBookData(baseUri, userInput));
+      const books = parseBookData(data);
+      expect(books).toEqual(false);
     });
   });
 });
