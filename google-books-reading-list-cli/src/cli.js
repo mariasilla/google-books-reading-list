@@ -1,12 +1,13 @@
 import minimist from "minimist";
 import chalk from "chalk";
-import { search } from "./search";
-import { help } from "./help";
-import { version } from "./version";
-import { view } from "./view";
+import figlet from "figlet";
+
+import { promptUserQuery } from "./commands/prompt-user-query";
+import { outputHelpOptions } from "./commands/output-help-options";
+import { outputVersion } from "./commands/output-version";
+import { outputReadingList } from "./commands/output-reading-list";
 
 export function cli(argsArray) {
-  let figlet = require("figlet");
   console.log(
     chalk.magentaBright(
       figlet.textSync("GB Reading List", { horizontalLayout: "full" })
@@ -26,19 +27,27 @@ export function cli(argsArray) {
 
   switch (cmd) {
     case "version":
-      version(args);
+      outputVersion();
       break;
 
     case "help":
-      help(args);
+      outputHelpOptions(args);
       break;
 
-    case "search":
-      search(args);
+    case "general-search":
+      promptUserQuery(args);
+      break;
+
+    case "title-search":
+      promptUserQuery(args);
+      break;
+
+    case "author-search":
+      promptUserQuery(args);
       break;
 
     case "view":
-      view(args);
+      outputReadingList();
       break;
 
     default:
