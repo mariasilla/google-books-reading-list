@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { API } from "./api-config";
 
-export async function performApiSearch(uri, userQuery) {
+export async function getBookData(uri, userQuery) {
   const url = getApiUrl(uri, userQuery);
 
   return await axios({
@@ -20,9 +20,8 @@ export function parseBookData(data) {
         publisher: vol.volumeInfo.publisher
       };
     });
-  } else {
-    return false;
   }
+  return false;
 }
 
 function getApiUrl(baseUri, userQuery) {

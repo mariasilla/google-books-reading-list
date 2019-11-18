@@ -19,9 +19,9 @@ export async function promptUserQuery(args) {
       type: "text",
       name: "value",
       message: chalk.green(
-        `Please type query in command line to search for books:`
+        "Please type query in command line to search for books:"
       ),
-      validate: value => (value < 1 ? `Please enter at least one symbol` : true)
+      validate: value => (value < 1 ? "Please enter at least one symbol" : true)
     });
 
     if (cmd === "general-search") {

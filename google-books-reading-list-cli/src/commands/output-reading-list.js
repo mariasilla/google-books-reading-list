@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import Table from "cli-table3";
 import low from "lowdb";
-import FileSync from "lowdb/adapters/FileSync"
+import FileSync from "lowdb/adapters/FileSync";
 
 export function outputReadingList() {
   const adapter = new FileSync("reading-list.json");
@@ -18,13 +18,13 @@ export function outputReadingList() {
     books.forEach((book, i) => {
       table.push([i + 1, book.author, book.title, book.publisher]);
     });
-    console.log(chalk.green(`Here's your Reading List! Enjoy!:)`));
+    console.log(chalk.green("Here's your Reading List! Enjoy!:)"));
     console.log(table.toString());
     process.exit();
   } else {
     console.error(
-      chalk.red(`Nothing added to your Reading List yet.`),
-      chalk.greenBright(`Run 'gb-reading-list help' to view possible commands.`)
+      chalk.red("Nothing added to your Reading List yet."),
+      chalk.greenBright("Run 'gb-reading-list help' to view possible commands.")
     );
     process.exit();
   }

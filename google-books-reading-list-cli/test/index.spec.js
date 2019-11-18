@@ -1,7 +1,6 @@
-require = require("esm")(module);
 import { API } from "../src/utils/api/api-config";
 import { getBookData, parseBookData } from "../src/utils/api/api-utils";
-import { mockBooksGeneral, mockBooksTitle, mockBooksAuthor } from "./mock-data";
+require = require("esm")(module);
 
 describe("Cli module should be loaded", () => {
   let mockRequire;
@@ -31,7 +30,7 @@ describe("Cli module should be loaded", () => {
 
     expect(spyLogError).toBeCalledTimes(1);
     expect(spyLogError).toHaveBeenCalledWith(
-      '"run commands" is not a valid command!'
+      "\"run commands\" is not a valid command!"
     );
   });
 });
@@ -44,7 +43,7 @@ describe("Function getBookData() should handle API get request correctly", () =>
   let data;
 
   beforeEach(async () => {
-    userInput = "love";
+    userInput = "Love";
     baseUri = API.BASE_URI;
     ({ data, status, statusText } = await getBookData(baseUri, userInput));
   });
@@ -64,15 +63,15 @@ describe("Function getBookData() should handle API get request correctly", () =>
   describe("parseBookData() function should parse data", () => {
     test("should return object of books with general results if API.BASE_URI is passed", async () => {
       const books = parseBookData(data);
-      expect(books).toEqual(mockBooksGeneral);
+      expect(books[0].title).toEqual("Book Love");
     });
 
     test("return object of books with specific title if BASE_URI_TITLE is passed", async () => {
       baseUri = API.BASE_URI_TITLE;
-      userInput = "jaVascript";
+      userInput = "Javascript";
       ({ data } = await getBookData(baseUri, userInput));
       const books = parseBookData(data);
-      expect(books).toEqual(mockBooksTitle);
+      expect(books[0].title).toEqual("JavaScript Patterns");
     });
 
     test("return object of books with specific author if BASE_URI_AUTHOR is passed", async () => {
@@ -80,7 +79,7 @@ describe("Function getBookData() should handle API get request correctly", () =>
       userInput = "Flannagan";
       ({ data } = await getBookData(baseUri, userInput));
       const books = parseBookData(data);
-      expect(books).toEqual(mockBooksAuthor);
+      expect(books[0].authors).toEqual(["T. B. Flannagan"]);
     });
   });
 });

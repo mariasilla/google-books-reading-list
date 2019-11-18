@@ -17,7 +17,7 @@ export function promptBookMenuOptions(books) {
         type: "multiselect",
         name: "value",
         message: chalk.greenBright(
-          `Select a book to save to your reading list`
+          "Select a book to save to your reading list"
         ),
         choices: userOptions,
         max: 1,
@@ -32,7 +32,7 @@ export function promptBookMenuOptions(books) {
           `Book with title '${book.title}' by ${book.authors} has been added to your Reading List.`
         ),
         chalk.greenBright(
-          `Run 'gb-reading-list view' to view your Reading List.`
+          "Run 'gb-reading-list view' to view your Reading List."
         )
       );
       addBookToJson(book);
@@ -40,7 +40,7 @@ export function promptBookMenuOptions(books) {
       console.error(
         chalk.redBright("Please make a selection."),
         chalk.magentaBright(
-          `Run 'gb-reading-list help' to view possible commands.`
+          "Run 'gb-reading-list help' to view possible commands."
         )
       );
     }
