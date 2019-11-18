@@ -74,3 +74,15 @@ gb-reading-list view
 View your current reading list
 
 <img src="./google-books-reading-list-cli/assets/view.png" width="550">
+
+### `test`
+```sh
+npm test
+```
+Run Jest unit tests
+
+### `lint`
+```sh
+npm run lint
+```
+Run ESLint, a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
