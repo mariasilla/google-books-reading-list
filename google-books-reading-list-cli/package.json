@@ -26,7 +26,7 @@
     "figlet": "^1.2.4",
     "jest": "^24.9.0",
     "lowdb": "^1.0.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.6",
     "prompts": "^2.2.1"
   },
   "devDependencies": {
